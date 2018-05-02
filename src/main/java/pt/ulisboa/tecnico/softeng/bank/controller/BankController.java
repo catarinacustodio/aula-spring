@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import pt.ulisboa.tecnico.softeng.bank.domain.Bank;
 import pt.ulisboa.tecnico.softeng.bank.domain.Client;
 import pt.ulisboa.tecnico.softeng.bank.dto.BankDto;
+import pt.ulisboa.tecnico.softeng.bank.dto.ClientDto;
 import pt.ulisboa.tecnico.softeng.bank.exception.BankException;
 
 @Controller
@@ -53,6 +54,8 @@ public class BankController {
 		new Client(bank, "ID02", "Manel", 44);
 
 		model.addAttribute("bank", bank);
+		model.addAttribute("client", new ClientDto());
+		model.addAttribute("clients", bank.getClients());
 		return "bankView";
 	}
 }
